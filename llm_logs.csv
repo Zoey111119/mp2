@@ -1,0 +1,62 @@
+export const getPokemonDetail = async (idOrName: string | number): Promise<PokemonDetail> => {
+    try{
+        const response = await apiClient.get<PokemonDetail>(`/pokemon/${idOrName}`);
+        return response.data;
+    }catch(error){
+        console.error(`fail to get Pokemon detail for ${idOrName}:`, error);
+        throw error;
+    }
+};
+
+
+  useEffect(() => {
+    setLoading(true);
+    getPokemonDetail(currentId)
+      .then(setPokemon)
+      .catch(() => {})
+      .finally(() => setLoading(false));
+  }, [currentId]);
+
+
+
+
+    const filteredPokemons = useMemo(() => {
+    if (selectedTypes.length === 0) return pokemons;
+    return pokemons.filter((p) =>
+      selectedTypes.some((st) => p.types?.some((t) => t.type.name === st))
+    );
+  }, [pokemons, selectedTypes]);
+
+
+    const filteredPokemons = useMemo(() => {
+        return pokemons
+          .filter((pokemon) => {
+            const matchesSearch = 
+              pokemon.name.toLowerCase().includes(searchBox.toLowerCase().trim()) ||
+              pokemon.id.toString() === searchBox.trim();
+
+            const matchesType = 
+              selectedType === 'all' ||
+              pokemon.types.some((t) => t.type.name === selectedType);
+            return matchesSearch && matchesType;
+          })
+
+        <div className={styles.listContainer}>
+            <div className={styles.controlsBar}>
+                <input type="text" placeholder="search" value={searchBox} onChange={(e) => setSearchBox(e.target.value)} className={styles.searchInput} />
+                <select value={selectedType} onChange={(e) => setSelectedType(e.target.value)} className={styles.filterSelect}>
+                    <option value="all">
+                        All Types
+                    </option>
+                    {allTypes.map((type) => (
+                        <option key={type} value={type}>  {type.toUpperCase()}</option>
+                    ))}
+                </select>
+
+
+
+      const allTypes = useMemo(() => {
+        const typesSet = new Set<string>();
+        pokemons.forEach((p) => p.types.forEach((t) => typesSet.add(t.type.name)));
+        return Array.from(typesSet);
+    }, [pokemons]);
