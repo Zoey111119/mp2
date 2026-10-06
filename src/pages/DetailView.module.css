@@ -1,0 +1,37 @@
+.container {
+  max-width: 600px;
+  margin: 0 auto;
+  padding: 20px;
+  text-align: center;
+}
+
+.navBar {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 20px;
+}
+
+.navButton {
+  padding: 8px 16px;
+  cursor: pointer;
+}
+
+.card {
+  border: 1px solid #ddd;
+  border-radius: 8px;
+  padding: 20px;
+  background: #e1afaf;
+}
+
+.img {
+  width: 180px;
+  height: 180px;
+  object-fit: contain;
+}
+
+.text {
+  color: #000000;
+  font-size: 1rem;
+  margin: 12px 0;
+}

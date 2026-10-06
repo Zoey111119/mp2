@@ -1,0 +1,41 @@
+.navbar {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  padding: 15px 0;
+  background-color: #f8f9fa;
+  margin-bottom: 20px;
+}
+
+.Title{
+  margin: 0 0 10px 0;
+  font-size: 1.8rem;
+  color: #4d0808;
+}
+
+.navbarMenu {
+  display: flex;
+  gap: 24px; 
+  justify-content: center;
+}
+
+.navItem {
+  text-decoration: none;
+  color: #e77c7c;
+  font-size: 1.1rem;
+  font-weight: 500;
+  padding: 6px 12px;
+  border-radius: 4px;
+  transition: all 0.2s ease;
+}
+
+.navItem:hover {
+  background-color: #e1afaf;
+}
+
+
+.active {
+  color: #dc9393;
+  font-weight: bold;
+  border-bottom: 2px solid #e77c7c;
+}
